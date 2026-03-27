@@ -234,6 +234,17 @@ export function PersonalDetailsForm() {
           <div className="space-y-4">
             <SectionTitle tamil="ஜோதிட விவரங்கள்" english="Astrological Details" />
             <div className="grid gap-5 md:grid-cols-3">
+
+              <div className="space-y-2">
+                <Label className="text-sm font-semibold">கோத்திரம் / Gotra</Label>
+                <Input
+                  placeholder="Type your gotra"
+                  value={personalDetails.gotra}
+                  onChange={(e) => updatePersonalDetails({ gotra: e.target.value })}
+                  className="bg-background"
+                />
+              </div>
+
               <div className="space-y-2">
                 <Label className="text-sm font-semibold">ராசி / Rasi</Label>
                 <Select

@@ -80,6 +80,7 @@ export function ClassicTemplate({ bioData }: TemplateProps) {
                 <DetailRow label="பிறந்த தேதி / DOB" value={personalDetails.dateOfBirth} />
                 <DetailRow label="பிறந்த நேரம் / Time" value={personalDetails.timeOfBirth} />
                 <DetailRow label="பிறந்த இடம் / Place" value={personalDetails.birthPlace} />
+                <DetailRow label="கோத்திரம் / Gotra" value={personalDetails.gotra} />
                 <DetailRow label="ராசி / Rasi" value={personalDetails.rasi} />
                 <DetailRow label="நட்சத்திரம் / Star" value={personalDetails.nakshatram} />
                 <DetailRow label="லக்னம் / Lagnam" value={personalDetails.lagnam} />

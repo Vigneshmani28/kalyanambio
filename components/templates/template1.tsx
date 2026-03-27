@@ -163,6 +163,7 @@ export function ElegantTemplate({ bioData }: TemplateProps) {
                             <DetailRow label="Date of Birth" tamilLabel="பிறந்த தேதி" value={personalDetails.dateOfBirth} />
                             <DetailRow label="Time of Birth" tamilLabel="பிறந்த நேரம்" value={personalDetails.timeOfBirth} />
                             <DetailRow label="Birth Place" tamilLabel="பிறந்த இடம்" value={personalDetails.birthPlace} />
+                            <DetailRow label="Gotra" tamilLabel="கோத்திரம்" value={personalDetails.gotra} />
                             <DetailRow label="Rasi" tamilLabel="ராசி" value={personalDetails.rasi} />
                             <DetailRow label="Nakshatram" tamilLabel="நட்சத்திரம்" value={personalDetails.nakshatram} />
                             <DetailRow label="Lagnam" tamilLabel="லக்னம்" value={personalDetails.lagnam} />

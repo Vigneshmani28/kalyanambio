@@ -14,6 +14,7 @@ export interface PersonalDetails {
   dateOfBirth: string
   timeOfBirth: string
   birthPlace: string
+  gotra: string
   rasi: string
   nakshatram: string
   lagnam: string
@@ -155,6 +156,7 @@ export const getDefaultBioData = (): BioData => ({
     dateOfBirth: '',
     timeOfBirth: '',
     birthPlace: '',
+    gotra: '',
     rasi: '',
     nakshatram: '',
     lagnam: '',
@@ -204,6 +206,7 @@ export const getSampleBioData = (): BioData => ({
     dateOfBirth: '1996-05-15',
     timeOfBirth: '10:30 AM',
     birthPlace: 'சென்னை, தமிழ்நாடு',
+    gotra: 'Gotra',
     rasi: 'மேஷம் (Mesham)',
     nakshatram: 'அஸ்வினி (Ashwini)',
     lagnam: 'மேஷம் (Mesham)',

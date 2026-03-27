@@ -93,6 +93,7 @@ export function ElegantMarriageTemplate({ bioData }: TemplateProps) {
                             <ElegantDetailRow label="பிறந்த தேதி / DOB" value={personalDetails.dateOfBirth} />
                             <ElegantDetailRow label="பிறந்த நேரம் / Time" value={personalDetails.timeOfBirth} />
                             <ElegantDetailRow label="பிறந்த இடம் / Place" value={personalDetails.birthPlace} />
+                            <ElegantDetailRow label="கோத்திரம் / Gotra" value={personalDetails.gotra} />
                             <ElegantDetailRow label="ராசி / Rasi" value={personalDetails.rasi} />
                             <ElegantDetailRow label="நட்சத்திரம் / Star" value={personalDetails.nakshatram} />
                             <ElegantDetailRow label="லக்னம் / Lagnam" value={personalDetails.lagnam} />

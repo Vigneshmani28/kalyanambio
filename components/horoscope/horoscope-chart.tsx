@@ -2,50 +2,19 @@
 
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Checkbox } from '@/components/ui/checkbox'
 import { PLANET_OPTIONS } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import { X, ChevronDown, Edit } from 'lucide-react'
+import { useState } from 'react'
 
 interface HoroscopeChartProps {
   houses: string[]
   onChange: (houses: string[]) => void
   title: string
   readonly?: boolean
-}
-
-// South Indian Horoscope Layout mapping
-// Position in grid to house number
-const HOUSE_POSITIONS = [
-  { gridPos: '3', house: 0 },  // House 1 - Top row, col 2
-  { gridPos: '2', house: 1 },  // House 2 - Top row, col 1
-  { gridPos: '1', house: 2 },  // House 3 - Top row, col 0
-  { gridPos: '5', house: 3 },  // House 4 - Row 2, col 0
-  { gridPos: '9', house: 4 },  // House 5 - Row 3, col 0
-  { gridPos: '13', house: 5 }, // House 6 - Bottom row, col 0
-  { gridPos: '14', house: 6 }, // House 7 - Bottom row, col 1
-  { gridPos: '15', house: 7 }, // House 8 - Bottom row, col 2
-  { gridPos: '16', house: 8 }, // House 9 - Bottom row, col 3
-  { gridPos: '12', house: 9 }, // House 10 - Row 3, col 3
-  { gridPos: '8', house: 10 }, // House 11 - Row 2, col 3
-  { gridPos: '4', house: 11 }, // House 12 - Top row, col 3
-]
-
-// Grid position to CSS class mapping for South Indian style
-const getGridPosition = (index: number): string => {
-  const positions: Record<number, string> = {
-    0: 'col-start-2 row-start-1',
-    1: 'col-start-1 row-start-1',
-    2: 'col-start-1 row-start-2',
-    3: 'col-start-1 row-start-3',
-    4: 'col-start-1 row-start-4',
-    5: 'col-start-2 row-start-4',
-    6: 'col-start-3 row-start-4',
-    7: 'col-start-4 row-start-4',
-    8: 'col-start-4 row-start-3',
-    9: 'col-start-4 row-start-2',
-    10: 'col-start-4 row-start-1',
-    11: 'col-start-3 row-start-1',
-  }
-  return positions[index] || ''
 }
 
 // Standard Tamil horoscope abbreviations for the readonly chart cells
@@ -62,24 +31,21 @@ const PLANET_SHORT: Record<string, string> = {
   'லக்னம்': 'ல',
 }
 
-/** Abbreviate comma-separated planet string for a tiny cell */
+/** Format multiple planets for display */
 function formatCell(raw: string): string {
   if (!raw?.trim()) return ''
   return raw
     .split(',')
     .map(p => PLANET_SHORT[p.trim()] ?? p.trim())
+    .slice(0, 4) // Show max 4 planets per cell in readonly mode
     .join('\n')
 }
 
 export function HoroscopeChart({ houses, onChange, title, readonly = false }: HoroscopeChartProps) {
-  const handleHouseChange = (index: number, value: string) => {
+  const handleHouseChange = (index: number, planets: string[]) => {
     const newHouses = [...houses]
-    newHouses[index] = value
+    newHouses[index] = planets.join(',')
     onChange(newHouses)
-  }
-
-  const handleCustomInput = (index: number, value: string) => {
-    handleHouseChange(index, value)
   }
 
   if (readonly) {
@@ -153,41 +119,85 @@ export function HoroscopeChart({ houses, onChange, title, readonly = false }: Ho
   return (
     <div className="space-y-3">
       <h4 className="text-center text-sm font-semibold">{title}</h4>
-      {/*
-        Use a square container with a min-width so cells never collapse on mobile.
-        The 4×4 grid with col-span-2 / row-span-2 center cell works via CSS grid auto-placement.
-      */}
       <div
         className="grid gap-[2px] w-full mx-auto"
         style={{
           gridTemplateColumns: 'repeat(4, 1fr)',
           gridTemplateRows: 'repeat(4, 1fr)',
-          minWidth: '260px',
+          minWidth: '280px',
           aspectRatio: '1',
         }}
       >
         {/* Top row: 12, 1, 2, 3 */}
-        <HouseCell index={11} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={0} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={1} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={2} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
+        <HouseCell
+          index={11}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={0}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={1}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={2}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
 
         {/* Second row: 11, [center], 4 */}
-        <HouseCell index={10} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
+        <HouseCell
+          index={10}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
         <div className="col-span-2 row-span-2 border rounded-md flex items-center justify-center bg-muted/50 text-xs font-semibold text-muted-foreground">
           {title.includes('ராசி') ? 'ராசி' : 'நவாம்சம்'}
         </div>
-        <HouseCell index={3} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
+        <HouseCell
+          index={3}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
 
         {/* Third row: 10, [center continues], 5 */}
-        <HouseCell index={9} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={4} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
+        <HouseCell
+          index={9}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={4}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
 
         {/* Bottom row: 9, 8, 7, 6 */}
-        <HouseCell index={8} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={7} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={6} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
-        <HouseCell index={5} houses={houses} onChange={handleHouseChange} onCustomInput={handleCustomInput} />
+        <HouseCell
+          index={8}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={7}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={6}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
+        <HouseCell
+          index={5}
+          houses={houses}
+          onChange={handleHouseChange}
+        />
       </div>
     </div>
   )
@@ -196,44 +206,180 @@ export function HoroscopeChart({ houses, onChange, title, readonly = false }: Ho
 interface HouseCellProps {
   index: number
   houses: string[]
-  onChange: (index: number, value: string) => void
-  onCustomInput: (index: number, value: string) => void
+  onChange: (index: number, planets: string[]) => void
 }
 
-function HouseCell({ index, houses, onChange, onCustomInput }: HouseCellProps) {
-  const value = houses[index] || ''
-  const isPlanetValue = PLANET_OPTIONS.some(p => p.value === value)
+function HouseCell({ index, houses, onChange }: HouseCellProps) {
+  const [isCustomMode, setIsCustomMode] = useState(false)
+  const [customValue, setCustomValue] = useState('')
+
+  // Get current planets as array
+  const currentValue = houses[index] || ''
+  const selectedPlanets = currentValue ? currentValue.split(',').filter(p => p.trim()) : []
+
+  // Check if any planet is custom (not in PLANET_OPTIONS)
+  const hasCustomPlanets = selectedPlanets.some(p => !PLANET_OPTIONS.some(opt => opt.value === p))
+
+  // Handle planet toggle
+  const togglePlanet = (planetValue: string) => {
+    let newPlanets: string[]
+    if (selectedPlanets.includes(planetValue)) {
+      newPlanets = selectedPlanets.filter(p => p !== planetValue)
+    } else {
+      newPlanets = [...selectedPlanets, planetValue]
+    }
+    onChange(index, newPlanets)
+  }
+
+  // Handle custom planet addition
+  const addCustomPlanet = () => {
+    if (customValue.trim() && !selectedPlanets.includes(customValue.trim())) {
+      const newPlanets = [...selectedPlanets, customValue.trim()]
+      onChange(index, newPlanets)
+      setCustomValue('')
+      setIsCustomMode(false)
+    }
+  }
+
+  // Remove a planet
+  const removePlanet = (planet: string) => {
+    const newPlanets = selectedPlanets.filter(p => p !== planet)
+    onChange(index, newPlanets)
+  }
+
+  // Get planet label for display
+  const getPlanetLabel = (planetValue: string): string => {
+    const planet = PLANET_OPTIONS.find(p => p.value === planetValue)
+    return planet?.label || planetValue
+  }
 
   return (
-    // aspect-square keeps all cells uniform regardless of screen width
-    <div className="border rounded-md p-[2px] aspect-square flex flex-col gap-[2px] overflow-hidden bg-background">
-      <span className="text-[9px] text-muted-foreground text-center leading-none pt-[2px]">{index + 1}</span>
-      <Select
-        value={isPlanetValue ? value : '__custom__'}
-        onValueChange={(v) => {
-          if (v === '__custom__') return          // keep current free-text
-          if (v === '__empty__') onChange(index, '') // "Empty" option → clear
-          else onChange(index, v)
-        }}
-      >
-        <SelectTrigger className="h-5 text-[9px] px-[2px] flex-shrink-0">
-          <SelectValue placeholder="+" />
-        </SelectTrigger>
-        <SelectContent>
-          {PLANET_OPTIONS.map((planet) => (
-            <SelectItem key={planet.value || 'empty'} value={planet.value || '__empty__'} className="text-xs">
-              {planet.label}
-            </SelectItem>
-          ))}
-          <SelectItem value="__custom__" className="text-xs">Custom...</SelectItem>
-        </SelectContent>
-      </Select>
-      <Input
-        className="h-4 text-[9px] px-[2px] flex-1 min-h-0"
-        placeholder="type here"
-        value={value}
-        onChange={(e) => onCustomInput(index, e.target.value)}
-      />
+    <div className="border rounded-md p-1 flex flex-col gap-1 bg-background">
+      {/* House number */}
+      <div className="text-[10px] text-muted-foreground text-center font-medium">
+        {index + 1}
+      </div>
+
+      {/* Selected planets badges */}
+      <div className="flex flex-wrap gap-1 min-h-[48px] max-h-[60px] overflow-y-auto">
+        {selectedPlanets.map((planet) => (
+          <Badge
+            key={planet}
+            variant="secondary"
+            className="text-[9px] px-1 py-0 h-4 gap-0.5"
+          >
+            {getPlanetLabel(planet)}
+            <button
+              onClick={() => removePlanet(planet)}
+              className="ml-0.5 hover:text-destructive"
+            >
+              <X className="h-2 w-2" />
+            </button>
+          </Badge>
+        ))}
+        {selectedPlanets.length === 0 && (
+          <div className="text-[9px] text-muted-foreground text-center w-full">
+            Click + to add
+          </div>
+        )}
+      </div>
+
+      {/* Actions */}
+      <div className="flex gap-1">
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-5 px-1 text-[9px] flex-1"
+            >
+              <ChevronDown className="h-3 w-3 mr-0.5" />
+              Add
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-48 p-2" align="start">
+            <div className="space-y-2">
+              <div className="text-xs font-medium mb-1">Select Planets</div>
+              <div className="space-y-1 max-h-48 overflow-y-auto">
+                {PLANET_OPTIONS.map((planet) => (
+                  <div key={planet.value || 'empty'} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`planet-${index}-${planet.value}`}
+                      checked={selectedPlanets.includes(planet.value || '')}
+                      onCheckedChange={() => togglePlanet(planet.value || '')}
+                    />
+                    <label
+                      htmlFor={`planet-${index}-${planet.value}`}
+                      className="text-xs cursor-pointer"
+                    >
+                      {planet.label}
+                    </label>
+                  </div>
+                ))}
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full text-xs mt-2"
+                onClick={() => setIsCustomMode(true)}
+              >
+                <Edit className="h-3 w-3 mr-1" />
+                Add Custom
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        {/* Clear all button */}
+        {selectedPlanets.length > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-5 px-1 text-[9px]"
+            onClick={() => onChange(index, [])}
+          >
+            Clear
+          </Button>
+        )}
+      </div>
+
+      {/* Custom planet input dialog */}
+      {isCustomMode && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-background rounded-lg p-4 w-80 shadow-lg">
+            <h3 className="text-sm font-semibold mb-3">Add Custom Planet</h3>
+            <Input
+              placeholder="Enter planet name"
+              value={customValue}
+              onChange={(e) => setCustomValue(e.target.value)}
+              className="mb-3"
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') addCustomPlanet()
+              }}
+            />
+            <div className="flex gap-2 justify-end">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setIsCustomMode(false)
+                  setCustomValue('')
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                size="sm"
+                onClick={addCustomPlanet}
+                disabled={!customValue.trim()}
+              >
+                Add
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
