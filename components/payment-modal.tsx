@@ -83,7 +83,7 @@ function BiodataPreview() {
       {/* Zoom bar */}
       <div className="flex items-center gap-2 px-3 py-2 border-b bg-muted/30 flex-shrink-0">
         <span className="text-[11px] text-muted-foreground mr-auto truncate">
-          Watermarked — pay to download clean PDF
+          Watermarked - pay to download clean PDF
         </span>
         <button onClick={() => setManualScale(s => Math.max(0.25, (s ?? effectiveScale) - 0.08))}
           className="p-1.5 rounded-lg hover:bg-muted transition-colors shrink-0">
@@ -409,7 +409,7 @@ export function PaymentModal({ open, onClose, onPaid }: Props) {
 
   const stepTitles: Record<Step, string> = {
     preview: 'Preview Your Bio Data',
-    payment: 'Complete Payment — ₹29',
+    payment: 'Complete Payment - ₹29',
     processing: 'Processing…',
     success: 'Payment Confirmed',
   }
@@ -456,7 +456,7 @@ export function PaymentModal({ open, onClose, onPaid }: Props) {
                   })}
                 </div>
 
-                {/* Title — centred */}
+                {/* Title - centred */}
                 <h2 className="absolute left-1/2 -translate-x-1/2 text-sm font-semibold pointer-events-none">
                   {stepTitles[step]}
                 </h2>

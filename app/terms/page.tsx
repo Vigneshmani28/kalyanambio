@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Kalyanam Bio Data',
-  description: 'Terms and conditions for using Kalyanam Bio Data service.',
+  description: 'Terms and conditions for using Kalyanam Bio Data service - completely free.',
 }
 
 const EFFECTIVE_DATE = '27 March 2026'
@@ -35,29 +35,34 @@ export default function TermsPage() {
             website at <strong>kalyanambiodata.in</strong>, you agree to be bound by these Terms &amp; Conditions.
             Please read them carefully before using the service.
           </p>
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50 dark:bg-emerald-950/30 dark:border-emerald-800 p-4 text-emerald-800 dark:text-emerald-300">
+            <strong>Good news:</strong> This service is <strong>100% free</strong>! You can create, edit,
+            and download your Tamil marriage bio data PDF without any payment. Donations are optional
+            and help keep this service running.
+          </div>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-lg font-semibold">2. Service Description</h2>
           <p>
-            Kalyanam Bio Data is an online tool that allows users to create Tamil marriage bio data (jathaga kurippu)
+            Kalyanam Bio Data is a free online tool that allows users to create Tamil marriage bio data (jathaga kurippu)
             with horoscope charts and download them as a PDF document.
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-muted-foreground">
-            <li>Filling in your bio data is <strong>completely free</strong>.</li>
-            <li>A one-time payment of <strong>₹29</strong> is required to download the final PDF.</li>
-            <li>Each download requires a separate payment. There are no subscriptions or recurring charges.</li>
+            <li>Creating your bio data is <strong>completely free</strong>.</li>
+            <li>Downloading your PDF is <strong>completely free</strong> - unlimited downloads, no payment required.</li>
             <li>All data you enter is stored <strong>locally in your browser</strong> and is never uploaded to our servers.</li>
+            <li>You can edit your bio data and re-download as many times as you want, at no cost.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-lg font-semibold">3. Payment Terms</h2>
+          <h2 className="text-lg font-semibold">3. Donations (Optional Support)</h2>
           <ul className="list-disc pl-5 space-y-1.5 text-muted-foreground">
-            <li>The PDF download fee is ₹29 (Indian Rupees) per download, inclusive of all taxes.</li>
-            <li>Payments are processed securely. We accept UPI, Debit/Credit cards.</li>
-            <li>All payments are <strong>non-refundable</strong> once the PDF has been generated and the download link has been provided.</li>
-            <li>If a technical error prevents your download after payment, contact us within 24 hours for a resolution.</li>
+            <li>Donations are <strong>completely optional</strong> and not required to use any feature of this service.</li>
+            <li>If you choose to support the project, you can scan the QR code provided on the website.</li>
+            <li>Donations are voluntary and non-refundable. They help cover hosting costs and development time.</li>
+            <li>We are grateful for any support, but the service remains free regardless of whether you donate.</li>
           </ul>
         </section>
 
@@ -67,7 +72,7 @@ export default function TermsPage() {
             <li>You are solely responsible for the accuracy of the information you enter in your bio data.</li>
             <li>You confirm that all information provided is truthful and does not violate any applicable laws.</li>
             <li>You agree not to use this service for any fraudulent, misleading, or unlawful purpose.</li>
-            <li>You must verify all details carefully before completing payment, as <strong>editing after download requires a new payment</strong>.</li>
+            <li>You must verify all details carefully before downloading your final PDF.</li>
           </ul>
         </section>
 
@@ -93,8 +98,8 @@ export default function TermsPage() {
           <h2 className="text-lg font-semibold">7. Limitation of Liability</h2>
           <p>
             To the maximum extent permitted by law, Kalyanam Bio Data shall not be liable for any indirect,
-            incidental, or consequential damages arising from the use of this service. Our total liability
-            shall not exceed the amount paid by you for the specific download in question (₹29).
+            incidental, or consequential damages arising from the use of this service. Since the service is
+            free, our liability is limited to the maximum extent allowed by applicable law.
           </p>
         </section>
 

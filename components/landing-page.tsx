@@ -10,7 +10,9 @@ import {
   FileText,
   Download,
   CreditCard,
-  PenTool
+  PenTool,
+  QrCode,
+  Coffee
 } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion'
 
@@ -36,19 +38,19 @@ const features = [
   {
     icon: Layers,
     title: '3 Premium Templates',
-    desc: 'Classic, Elegant & Floral designs - all print-ready with A4 layout.',
+    desc: 'Classic, Elegant & Floral designs - all print-ready with A4 layout. Completely free!',
     color: 'bg-teal-50 text-teal-600 dark:bg-teal-950/60 dark:text-teal-400',
   },
   {
     icon: FileDown,
-    title: 'Instant PDF Download',
-    desc: 'One click to export a crisp, high-quality PDF ready to share or print.',
+    title: 'Free PDF Download',
+    desc: 'One click to export a crisp, high-quality PDF ready to share or print. No payment required.',
     color: 'bg-amber-50 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400',
   },
   {
     icon: Sparkles,
     title: 'Horoscope Charts',
-    desc: 'Built-in South Indian Rasi & Navamsam chart editor - no astrologer needed.',
+    desc: 'Built-in South Indian Rasi & Navamsam chart editor - no astrologer needed. Free for everyone.',
     color: 'bg-violet-50 text-violet-600 dark:bg-violet-950/60 dark:text-violet-400',
   },
   {
@@ -66,7 +68,7 @@ const features = [
   {
     icon: Heart,
     title: 'Tamil & English',
-    desc: 'Bilingual support - enter labels in Tamil script, values in any language.',
+    desc: 'Bilingual support - enter labels in Tamil script, values in any language. Always free.',
     color: 'bg-sky-50 text-sky-600 dark:bg-sky-950/60 dark:text-sky-400',
   },
 ]
@@ -74,42 +76,34 @@ const features = [
 const steps = [
   { num: '01', title: 'Enter Your Details', desc: 'Fill in personal, family, contact and horoscope information step by step.', icon: <FileText className="h-6 w-6" /> },
   { num: '02', title: 'Pick a Template', desc: 'Choose from Classic, Elegant or Floral - preview live as you type.', icon: <PenTool className="h-6 w-6" /> },
-  { num: '03', title: 'Pay ₹29', desc: 'One small payment unlocks your high-quality PDF download instantly.', icon: <CreditCard className="h-6 w-6" /> },
-  { num: '04', title: 'Download', desc: 'Save your professional bio data PDF with high quality.', icon: <Download className="h-6 w-6" /> },
+  { num: '03', title: 'Review & Edit', desc: 'Make sure everything is perfect. Edit anytime - completely free.', icon: <CreditCard className="h-6 w-6" /> },
+  { num: '04', title: 'Download Free PDF', desc: 'Save your professional bio data PDF with high quality. No payment needed!', icon: <Download className="h-6 w-6" /> },
 ]
 
 const faqs = [
   {
     q: 'Is this really free?',
-    a: 'No - this is a premium service. You can fill out all your details and edit them anytime, but payment is required to download the final PDF. Your data is saved locally in your browser, so you won\'t lose your progress.',
+    a: 'Yes! This service is 100% free. You can create, edit, and download your Tamil marriage bio data PDF without any payment. No hidden charges, no credit card required.',
   },
   {
-    q: 'Can I edit after payment?',
-    a: 'Yes! You can edit your data anytime after payment as well. However, each download requires a separate payment. Make sure everything is perfect before you download to avoid paying again.',
+    q: 'Can I edit after downloading?',
+    a: 'Absolutely! You can edit your data anytime and download again for free as many times as you want. There are no limits or restrictions.',
   },
   {
-    q: 'I paid but didn\'t download. Can I re-download?',
-    a: 'Once you\'ve paid and downloaded, you won\'t be able to download again without paying again. We recommend double-checking all details before clicking the download button. Your data remains saved, so you can review it anytime.',
+    q: 'Do I need to create an account?',
+    a: 'No account needed. Everything works directly in your browser. Your data is saved locally on your device.',
   },
   {
-    q: 'What if I made a mistake after downloading?',
-    a: 'If you notice a mistake after downloading, you can edit your data anytime. However, you\'ll need to pay again to generate and download the corrected PDF.',
-  },
-  {
-    q: 'How do I know my payment was successful?',
-    a: 'After successful payment, you\'ll be redirected back to the page and the download button will be enabled. You\'ll also receive a confirmation email with your receipt.',
-  },
-  {
-    q: 'What payment methods are accepted?',
-    a: 'We accept UPI (GPay, PhonePe, Paytm), Debit/Credit cards, and Net Banking via a secure payment gateway.',
+    q: 'How do I support this project?',
+    a: 'While the service is free, if you find it helpful, you can support the developer by scanning the QR code in the Support section or using the donation links. Your support helps keep this tool free for everyone!',
   },
   {
     q: 'Is my personal data safe?',
-    a: 'Yes - 100%. All data is stored only in your browser\'s local storage. Nothing is sent to any server. Even after payment, your data remains private and never leaves your device.',
+    a: 'Yes - 100%. All data is stored only in your browser\'s local storage. Nothing is sent to any server. Your privacy is completely protected.',
   },
   {
     q: 'Can I add a photo?',
-    a: 'Yes! You can upload and crop your photo directly in the form. It appears on all templates. Your photo is stored locally and never uploaded to any server.',
+    a: 'Yes! You can upload and crop your photo directly in the form. It appears on all templates. Your photo is stored locally and never uploaded.',
   },
   {
     q: 'Is the PDF print-ready?',
@@ -117,14 +111,22 @@ const faqs = [
   },
   {
     q: 'Do you support horoscope charts?',
-    a: 'Yes - the built-in South Indian style Rasi and Navamsam chart editor is included for free with all paid downloads.',
+    a: 'Yes - the built-in South Indian style Rasi and Navamsam chart editor is included for free with all downloads.',
+  },
+  {
+    q: 'Can I use this on mobile?',
+    a: 'Yes! The bio data maker is fully responsive and works great on mobile phones, tablets, and desktop computers.',
+  },
+  {
+    q: 'What if I find a bug or have a suggestion?',
+    a: 'We\'d love to hear from you! Contact us via email or phone, and we\'ll do our best to improve the tool.',
   },
 ];
 
 const NAV_LINKS = [
   { label: 'Features', href: '#features' },
   { label: 'How it works', href: '#how' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Support', href: '#support' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -238,15 +240,15 @@ function Hero() {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 text-center">
-        {/* Badge */}
+        {/* Badge - FREE badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-amber-400/15 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-amber-200 mb-6"
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-400/10 backdrop-blur-md px-4 py-1.5 text-xs font-medium text-emerald-200 mb-6 shadow-sm"
         >
-          <Star className="h-3.5 w-3.5 fill-current" />
-          Tamil Marriage Bio Data Maker · ஜாதக குறிப்பு
+          <Star className="h-3.5 w-3.5 text-emerald-300" />
+          Free Forever · No Signup · No Hidden Charges
         </motion.div>
 
         {/* Headline */}
@@ -256,13 +258,13 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
         >
-          Tamil Biodata,{' '}
+          Tamil Biodata,{" "}
           <span className="bg-gradient-to-r from-teal-500 to-emerald-400 bg-clip-text text-transparent">
-            Beautifully Made
+            Designed Like Premium
           </span>
           <br />
-          <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white/70">
-            in Minutes
+          <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white/80">
+            Offered Completely Free
           </span>
         </motion.h1>
 
@@ -271,9 +273,10 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 max-w-2xl mx-auto text-lg text-white/80 leading-relaxed">
-          Create a professional Tamil marriage bio data with horoscope charts, upload your photo, choose from 3 premium templates - and download a print-ready PDF for just{' '}
-          <span className="font-bold text-amber-300">₹29</span>.
+          className="mt-6 max-w-2xl mx-auto text-lg text-white/80 leading-relaxed"
+        >
+          Create elegant Tamil marriage biodata with horoscope charts, photos, and beautiful templates -
+          download instantly with zero cost, zero signup.
         </motion.p>
 
         {/* CTAs */}
@@ -291,22 +294,22 @@ function Hero() {
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <a
-            href="#how"
+            href="#support"
             className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 backdrop-blur-sm px-7 py-3.5 text-base font-medium text-white hover:bg-white/20 transition-all"
           >
-            See How It Works
-            <ChevronDown className="h-4 w-4" />
+            Support the Project
+            <Heart className="h-4 w-4" />
           </a>
         </motion.div>
 
-        {/* Social proof */}
+        {/* Social proof - updated to free */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 text-xs text-white/60"
         >
-          ✓ No account needed &nbsp;·&nbsp; ✓ Data stays on your device &nbsp;·&nbsp; ✓ Pay only to download
+          ✓ 100% Free &nbsp;·&nbsp; ✓ No account needed &nbsp;·&nbsp; ✓ Unlimited downloads &nbsp;·&nbsp; ✓ Data stays on your device
         </motion.p>
 
         {/* Preview mockup */}
@@ -332,7 +335,7 @@ function Hero() {
                 </div>
                 <div className="flex gap-2 pt-2">
                   <div className="h-9 rounded-lg bg-muted w-20" />
-                  <div className="h-9 rounded-lg bg-primary/20 w-24" />
+                  <div className="h-9 rounded-lg bg-emerald-500/30 w-24" />
                 </div>
               </div>
               {/* Right: bio preview skeleton */}
@@ -366,7 +369,7 @@ function Features() {
           <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Everything You Need</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Built for Tamil families</h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Every feature crafted to make creating your marriage bio data effortless and professional.
+            Every feature crafted to make creating your marriage bio data effortless and professional - completely free.
           </p>
         </FadeUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -403,7 +406,7 @@ function HowItWorks() {
             Ready in 4 easy steps
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Create your professional biodata in minutes with our simple, guided process
+            Create your professional biodata in minutes with our simple, guided process - always free.
           </p>
         </FadeUp>
 
@@ -425,7 +428,6 @@ function HowItWorks() {
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                       {s.icon}
                     </div>
-                    {/* Decorative gradient circle */}
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
@@ -436,7 +438,6 @@ function HowItWorks() {
                     {s.desc}
                   </p>
 
-                  {/* Optional: Show step status on hover */}
                   <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="flex items-center gap-1 text-xs text-primary">
                       <CheckCircle2 className="h-3 w-3" />
@@ -453,69 +454,101 @@ function HowItWorks() {
   );
 }
 
-function Pricing() {
+// ─── Support Section with QR Code ────────────────────────────────────────────
+function Support() {
   return (
-    <section id="pricing" className="py-24 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-4">
-        <FadeUp className="text-center mb-14">
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Simple Pricing</p>
-          <h2 className="text-3xl sm:text-4xl font-bold">One plan - no surprises</h2>
-          <p className="mt-3 text-muted-foreground">Create for free. Pay only when you download.</p>
+    <section id="support" className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-teal-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+      <div className="max-w-4xl mx-auto px-4">
+        <FadeUp className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-sm font-medium mb-4">
+            <Heart className="h-3.5 w-3.5 fill-current" />
+            <span>Support the Project</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Love This Tool? ❤️
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            This service is completely free and will always remain free. If you find it helpful,
+            consider supporting the development with a small contribution.
+          </p>
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="mx-auto max-w-md">
-            <div className="relative rounded-3xl border-2 border-primary bg-card shadow-2xl shadow-primary/10 overflow-hidden">
-              {/* Top accent bar */}
-              <div className="h-1.5 w-full bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-500" />
-
-              {/* Popular badge */}
-              <div className="absolute top-5 right-5 inline-flex items-center gap-1 rounded-full bg-amber-100 dark:bg-amber-900/60 border border-amber-200 dark:border-amber-700 px-2.5 py-1 text-[11px] font-semibold text-amber-700 dark:text-amber-400">
-                <Star className="h-3 w-3 fill-current" /> Best Value
+          <div className="rounded-3xl border-2 border-amber-200 dark:border-amber-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+              {/* Left: Info */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-full bg-amber-100 dark:bg-amber-900/50">
+                    <Coffee className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <h3 className="text-xl font-bold">Buy me a coffee ☕</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  Your support helps cover hosting costs, development time, and keeps this tool
+                  free for everyone in the Tamil community. Every contribution, big or small, is deeply appreciated!
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className="text-sm">100% of donations go to maintaining this service</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className="text-sm">No pressure - the tool is always free either way</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className="text-sm">Thank you for being awesome! 🙏</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-dashed">
+                  <p className="text-xs text-muted-foreground text-center">
+                    Scan QR code with any UPI app (Google Pay, PhonePe, Paytm) to support
+                  </p>
+                </div>
               </div>
 
-              <div className="p-8">
-                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Full Access</p>
-                <div className="mt-4 flex items-end gap-1.5">
-                  <span className="text-5xl font-black text-foreground">₹29</span>
-                  <span className="text-muted-foreground mb-1.5 text-sm">one-time</span>
+              {/* Right: QR Code */}
+              <div className="flex flex-col items-center justify-center gap-4">
+                <div className="relative bg-white p-4 rounded-2xl shadow-lg border">
+                  {/* QR Code Image - Replace with your actual QR code image */}
+                  <div className="w-48 h-48 bg-gray-100 rounded-xl flex items-center justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <Image
+                      src="/qr.png"
+                      alt="UPI QR Code for donation"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  </div>
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">That's less than a tea ☕</p>
-
-                <ul className="mt-8 space-y-3.5">
-                  {[
-                    'Unlimited edits before download',
-                    '3 premium templates (Classic, Elegant, Floral)',
-                    'Rasi & Navamsam horoscope charts',
-                    'Photo upload & crop',
-                    'All custom fields included',
-                    'Instant high-quality PDF',
-                    'Print-ready A4 layout',
-                  ].map(item => (
-                    <li key={item} className="flex items-start gap-3 text-sm">
-                      <CheckCircle2 className="h-4.5 w-4.5 text-emerald-500 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href="/maker"
-                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 text-base font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
-                >
-                  Start Creating
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <p className="mt-3 text-center text-xs text-muted-foreground">
-                  No account · No subscription · Pay to download
-                </p>
+                <div className="text-center">
+                  <p className="text-sm font-mono bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg">
+                    UPI ID: <span className="font-bold">vickyanbu292001-2@oksbi</span>
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Or scan QR code with any UPI app
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </FadeUp>
+
+        {/* Alternative message */}
+        <FadeUp delay={0.2} className="text-center mt-8">
+          <p className="text-sm text-muted-foreground">
+            Can't donate? No worries! Just share this tool with your friends and family who might need it. 🙌
+          </p>
+        </FadeUp>
       </div>
     </section>
-  )
+  );
 }
 
 function FAQ() {
@@ -556,8 +589,8 @@ function CTA() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(20,184,166,0.08),transparent)]" />
       <FadeUp>
         <div className="relative max-w-2xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/60 px-3.5 py-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 mb-6">
-            <Sparkles className="h-3.5 w-3.5" /> Ready in minutes
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 px-3.5 py-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 mb-6">
+            <Sparkles className="h-3.5 w-3.5" /> Always Free
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
             Create your Tamil bio data<br />
@@ -566,14 +599,22 @@ function CTA() {
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            No account needed. Start for free. Download for just ₹29.
+            No account needed. No payment required. Start creating your free bio data now.
           </p>
-          <Link
-            href="/maker"
-            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-xl hover:opacity-90 transition-opacity"
-          >
-            Create My Bio Data <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/maker"
+              className="inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-xl hover:opacity-90 transition-opacity"
+            >
+              Create My Bio Data <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href="#support"
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card px-8 py-4 text-base font-semibold hover:bg-muted transition-colors"
+            >
+              <Heart className="h-4 w-4 text-rose-500" /> Support the Project
+            </a>
+          </div>
         </div>
       </FadeUp>
     </section>
@@ -599,7 +640,7 @@ function Footer() {
             </Link>
             <p className="text-xs text-muted-foreground leading-relaxed">
               Professional Tamil marriage bio data maker with horoscope charts.
-              Create, preview, and download your bio data for just ₹29.
+              Create, preview, and download your bio data - completely free.
             </p>
           </div>
 
@@ -609,7 +650,7 @@ function Footer() {
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <a href="#features" className="hover:text-foreground transition-colors">Features</a>
               <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
-              <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+              <a href="#support" className="hover:text-foreground transition-colors">Support</a>
               <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
               <Link href="/maker" className="hover:text-foreground transition-colors">Create Bio Data</Link>
             </div>
@@ -637,7 +678,7 @@ function Footer() {
         {/* Bottom bar */}
         <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Kalyanam Bio Data. Made with ❤️ for Tamil families.
+            © {new Date().getFullYear()} Kalyanam Bio Data. Made with ❤️ for Tamil families. 100% Free Forever.
           </p>
           <div className="flex gap-4 text-xs text-muted-foreground">
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
@@ -658,7 +699,7 @@ export default function LandingPage() {
       <Hero />
       <Features />
       <HowItWorks />
-      <Pricing />
+      <Support />
       <FAQ />
       <CTA />
       <Footer />

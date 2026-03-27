@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Kalyanam Bio Data',
-  description: 'Privacy policy for Kalyanam Bio Data — how we handle your data.',
+  description: 'Privacy policy for Kalyanam Bio Data - how we handle your data.',
 }
 
 const EFFECTIVE_DATE = '27 March 2026'
@@ -37,6 +37,7 @@ export default function PrivacyPage() {
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 dark:bg-emerald-950/30 dark:border-emerald-800 p-4 text-emerald-800 dark:text-emerald-300">
             <strong>Key fact:</strong> All bio data you create (name, family details, horoscope, photo) is stored
             <strong> only in your own browser's localStorage</strong>. It is never transmitted to or stored on our servers.
+            The service is completely free - we never ask for payment to download your bio data.
           </div>
         </section>
 
@@ -46,17 +47,17 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1.5 text-muted-foreground">
             <li>Personal details: name, age, date of birth, education, occupation</li>
             <li>Family details: parents' names, siblings, ancestry</li>
-            <li>Contact details: phone number, address</li>
+            <li>Contact details: phone number, address (optional)</li>
             <li>Horoscope chart information (rasi, nakshatram, house placements)</li>
             <li>Profile photo (stored as a base64 string in your browser)</li>
           </ul>
           <p className="text-muted-foreground">This data never leaves your device. We cannot access it.</p>
 
-          <h3 className="font-medium text-foreground mt-4">b) Payment Information</h3>
+          <h3 className="font-medium text-foreground mt-4">b) Donations (Optional Support)</h3>
           <p className="text-muted-foreground">
-            When you pay ₹29, payment is processed by a third-party payment gateway. We do not store
-            your card details, UPI credentials, or banking information. We only receive confirmation
-            that a payment was made.
+            If you choose to support the project via the donation QR code, your donation is processed
+            through your preferred UPI app. We do not store any payment information. Donations are
+            voluntary and help keep this service free for everyone.
           </p>
 
           <h3 className="font-medium text-foreground mt-4">c) Usage Analytics (if any)</h3>
@@ -69,10 +70,9 @@ export default function PrivacyPage() {
         <section className="space-y-3">
           <h2 className="text-lg font-semibold">3. How We Use Information</h2>
           <ul className="list-disc pl-5 space-y-1.5 text-muted-foreground">
-            <li>To process and confirm your ₹29 payment</li>
-            <li>To generate and deliver your PDF upon successful payment</li>
-            <li>To respond to support requests or inquiries</li>
+            <li>To provide you with a free bio data creation and download service</li>
             <li>To improve the website and its features</li>
+            <li>To respond to support requests or inquiries</li>
           </ul>
           <p>We do <strong>not</strong> sell, rent, or share your personal data with any third parties for marketing.</p>
         </section>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1.5 text-muted-foreground">
             <li>Your bio data resides exclusively in your browser's localStorage. Clearing your browser data removes it permanently.</li>
             <li>Our website uses HTTPS (SSL/TLS) encryption for all communications.</li>
-            <li>Payment transactions are protected by the payment gateway's security infrastructure (256-bit SSL).</li>
+            <li>We do not store any personal data on our servers.</li>
           </ul>
         </section>
 
@@ -114,8 +114,8 @@ export default function PrivacyPage() {
         <section className="space-y-3">
           <h2 className="text-lg font-semibold">8. Third-Party Services</h2>
           <p className="text-muted-foreground">
-            We integrate with third-party payment gateways. These services have their own privacy policies
-            and are responsible for the security of payment data. We encourage you to review their policies.
+            If you choose to make a voluntary donation, you will be redirected to your preferred UPI app.
+            These apps have their own privacy policies. Donations are optional and not required to use the service.
           </p>
         </section>
 

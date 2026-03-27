@@ -61,7 +61,7 @@ export function Header({ onOpenPreview }: HeaderProps) {
         {/* Actions */}
         <div className="flex items-center gap-2">
 
-          {/* Preview — mobile only, replaces Sample Data */}
+          {/* Preview - mobile only, replaces Sample Data */}
           {onOpenPreview && (
             <Button
               variant="outline"

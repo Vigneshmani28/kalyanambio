@@ -33,7 +33,7 @@ export function BiodataMaker() {
 
   // Opens the payment modal instead of downloading directly
   const handleDownload = () => {
-    setPaymentOpen(true)
+    downloadPdf('biodata-preview', 'kalyanam-biodata.pdf')
   }
 
   // Called by PaymentModal after successful mock payment
@@ -104,7 +104,7 @@ export function BiodataMaker() {
                 </div>
               </div>
 
-              {/* PREVIEW — Desktop only sidebar */}
+              {/* PREVIEW - Desktop only sidebar */}
               <div className="hidden lg:block sticky top-28 h-fit max-h-[calc(100vh-5rem)] overflow-auto rounded-2xl border bg-background shadow-sm">
                 <PreviewPanel onDownload={handleDownload} isDownloading={isDownloading} />
               </div>

@@ -96,7 +96,7 @@ export function PreviewPanel({ onDownload, isDownloading }: PreviewPanelProps) {
 
         <CardContent className="flex-1 overflow-hidden p-0">
           {hasContent ? (
-            /* Live preview — auto-scaled to fit container */
+            /* Live preview - auto-scaled to fit container */
             <div ref={containerRef} className="h-full overflow-y-auto overflow-x-hidden">
               <div className="p-2 flex justify-center">
                 {/*
@@ -139,7 +139,7 @@ export function PreviewPanel({ onDownload, isDownloading }: PreviewPanelProps) {
               <div className="space-y-1">
                 <p className="text-base font-semibold text-foreground">Your preview will appear here</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Start filling in your personal details — the bio-data preview updates live as you type.
+                  Start filling in your personal details - the bio-data preview updates live as you type.
                 </p>
               </div>
               <div className="flex items-center gap-2 text-xs text-muted-foreground border rounded-full px-4 py-2 bg-muted/40">

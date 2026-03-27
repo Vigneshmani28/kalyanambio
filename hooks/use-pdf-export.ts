@@ -63,11 +63,11 @@ export function usePdfExport() {
       // Small delay to ensure styles are applied
       await new Promise(resolve => setTimeout(resolve, 200))
 
-      // Generate canvas — onclone strips the global CSS that contains lab()/oklch()
+      // Generate canvas - onclone strips the global CSS that contains lab()/oklch()
       // color functions which html2canvas cannot parse. Templates use only inline
       // hex styles so this has no visual impact on the output.
       const canvas = await html2canvas(wrapper, {
-        scale: 3,          // 192 DPI — sharp for print, reasonable file size
+        scale: 3,          // 192 DPI - sharp for print, reasonable file size
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
@@ -138,7 +138,7 @@ export function usePdfExport() {
 
       // Download
       pdf.save(filename)
-      toast.success('PDF downloaded successfully!')
+      toast.success('Biodata downloaded successfully!')
     } catch (error) {
       console.error('Error generating PDF:', error)
       toast.error('Failed to generate PDF. Please try again.')

@@ -210,7 +210,7 @@ function SectionTitle({ title }: { title: string }) {
         {title}
       </div>
 
-      {/* Underline — sits below text with clear separation */}
+      {/* Underline - sits below text with clear separation */}
       <div
         style={{
           height: '1.5px',

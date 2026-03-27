@@ -75,7 +75,7 @@ export default function ContactPage() {
             <div>
               <p className="font-semibold text-sm">Location</p>
               <p className="text-sm text-muted-foreground mt-0.5">Tamil Nadu, India</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Online service — no walk-ins</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Online service - no walk-ins</p>
             </div>
           </div>
         </div>
