@@ -65,7 +65,7 @@ export interface BioData {
   horoscopeDetails: HoroscopeDetails
 }
 
-export type TemplateType = 'classic' | 'elegant' | 'floral'
+export type TemplateType = 'classic' | 'elegant' | 'floral' | 'elegant-marriage'
 
 export const RASI_OPTIONS = [
   'மேஷம் (Mesham)',

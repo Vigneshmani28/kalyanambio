@@ -13,6 +13,7 @@ import { ContactDetailsForm } from '@/components/forms/contact-details-form'
 import { HoroscopeForm } from '@/components/horoscope/horoscope-form'
 import { PreviewPanel } from '@/components/preview/preview-panel'
 import { usePdfExport } from '@/hooks/use-pdf-export'
+import { PaymentModal } from './payment-modal'
 
 const TOTAL_STEPS = 4
 
@@ -20,6 +21,7 @@ export function BiodataMaker() {
   const { currentStep, setCurrentStep } = useBioData()
   const { downloadPdf, isDownloading } = usePdfExport()
   const [mobilePreviewOpen, setMobilePreviewOpen] = useState(false)
+  const [paymentOpen, setPaymentOpen] = useState(false)
 
   const handleNext = () => {
     if (currentStep < TOTAL_STEPS - 1) setCurrentStep(currentStep + 1)
@@ -29,8 +31,14 @@ export function BiodataMaker() {
     if (currentStep > 0) setCurrentStep(currentStep - 1)
   }
 
+  // Opens the payment modal instead of downloading directly
   const handleDownload = () => {
-    downloadPdf('biodata-preview', 'tamil-biodata.pdf')
+    setPaymentOpen(true)
+  }
+
+  // Called by PaymentModal after successful mock payment
+  const handlePaid = () => {
+    downloadPdf('biodata-preview', 'kalyanam-biodata.pdf')
   }
 
   const renderStep = () => {
@@ -151,6 +159,12 @@ export function BiodataMaker() {
         </AnimatePresence>
 
       </div>
+      {/* Payment Modal */}
+      <PaymentModal
+        open={paymentOpen}
+        onClose={() => setPaymentOpen(false)}
+        onPaid={handlePaid}
+      />
     </>
   )
 }

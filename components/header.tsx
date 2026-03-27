@@ -1,6 +1,6 @@
 'use client'
 
-import { Moon, Sun, RotateCcw, Eye } from 'lucide-react'
+import { Moon, Sun, RotateCcw, Eye, Sparkles } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useBioData } from '@/lib/biodata-context'
 import { Button } from '@/components/ui/button'
@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/alert-dialog'
 import { toast } from 'sonner'
 import Image from 'next/image'
+import { getSampleBioData } from '@/lib/types'
 
 interface HeaderProps {
   /** Called when the user taps "Preview" on mobile */
@@ -25,11 +26,16 @@ interface HeaderProps {
 
 export function Header({ onOpenPreview }: HeaderProps) {
   const { theme, setTheme } = useTheme()
-  const { resetForm } = useBioData()
+  const { setBioData, resetForm } = useBioData()
 
   const handleReset = () => {
     resetForm()
     toast.success('Form reset successfully!')
+  }
+
+  const handleFillSample = () => {
+    setBioData(getSampleBioData())
+    toast.success('Sample data filled!')
   }
 
   return (
@@ -38,12 +44,11 @@ export function Header({ onOpenPreview }: HeaderProps) {
 
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-muted text-primary-foreground shadow-sm overflow-hidden">
+          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-muted shadow-sm overflow-hidden relative">
             <Image
               src="/logo/logo.png"
               alt="Logo"
-              width={56}
-              height={56}
+              fill
               className="object-contain"
             />
           </div>
@@ -68,6 +73,11 @@ export function Header({ onOpenPreview }: HeaderProps) {
               <span className="hidden sm:inline">Preview</span>
             </Button>
           )}
+
+          <Button variant="outline" size="sm" onClick={handleFillSample}>
+            <Sparkles className="mr-1 h-3 w-3" />
+            <span className="hidden sm:inline">Sample Data</span>
+          </Button>
 
           {/* Reset */}
           <AlertDialog>

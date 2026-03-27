@@ -138,7 +138,7 @@ export function ElegantTemplate({ bioData }: TemplateProps) {
                                 fontStyle: 'italic',
                             }}
                         >
-                            திருமண வாழ்க்கைத் தகவல்
+                            ஜாதக குறிப்பு
                         </div>
                     </div>
 

@@ -9,7 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ClassicTemplate } from '@/components/templates/classic-template'
-import { ElegantTemplate } from '@/components/templates/template1'
+import { ElegantTemplate } from '../templates/template1'
+import { ElegantMarriageTemplate } from '../templates/template2'
 
 // A4 at 96 dpi ≈ 794px wide, 1123px tall
 const A4_PX_W = 794
@@ -44,6 +45,8 @@ export function PreviewPanel({ onDownload, isDownloading }: PreviewPanelProps) {
         return <ClassicTemplate bioData={bioData} />
       case 'elegant':
         return <ElegantTemplate bioData={bioData} />
+      case 'elegant-marriage':
+        return <ElegantMarriageTemplate bioData={bioData} />
       default:
         return <ClassicTemplate bioData={bioData} />
     }
@@ -78,8 +81,9 @@ export function PreviewPanel({ onDownload, isDownloading }: PreviewPanelProps) {
                 <SelectValue placeholder="Select template" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="classic">Classic Template</SelectItem>
-                <SelectItem value="elegant">Elegant Template</SelectItem>
+                <SelectItem value="classic">Template 1</SelectItem>
+                <SelectItem value="elegant">Template 2</SelectItem>
+                <SelectItem value="elegant-marriage">Template 3</SelectItem>
               </SelectContent>
             </Select>
 
