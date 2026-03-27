@@ -1,0 +1,290 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Backgrounds */
+  --background: oklch(0.97 0.01 95);
+  /* soft off-white */
+  --foreground: oklch(0.25 0.02 200);
+  /* dark teal-gray text */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.02 200);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.02 200);
+
+  /* 🔥 Primary = TEAL */
+  --primary: oklch(0.55 0.11 185);
+  /* teal */
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Secondary (light teal surface) */
+  --secondary: oklch(0.93 0.03 185);
+  --secondary-foreground: oklch(0.3 0.02 200);
+
+  /* Muted */
+  --muted: oklch(0.94 0.02 90);
+  --muted-foreground: oklch(0.5 0.02 200);
+
+  /* ✨ Accent = GOLD */
+  --accent: oklch(0.75 0.12 85);
+  /* gold */
+  --accent-foreground: oklch(0.2 0.02 30);
+
+  /* Error */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* UI Elements */
+  --border: oklch(0.9 0.02 90);
+  --input: oklch(0.92 0.01 90);
+  --ring: oklch(0.55 0.11 185);
+
+  /* Charts (brand aligned) */
+  --chart-1: oklch(0.55 0.11 185);
+  /* teal */
+  --chart-2: oklch(0.75 0.12 85);
+  /* gold */
+  --chart-3: oklch(0.7 0.08 140);
+  /* soft green-teal */
+  --chart-4: oklch(0.6 0.1 200);
+  /* deep teal */
+  --chart-5: oklch(0.65 0.08 60);
+  /* warm gold */
+
+  --radius: 0.625rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.2 0.02 200);
+
+  --sidebar-primary: oklch(0.55 0.11 185);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+
+  --sidebar-accent: oklch(0.95 0.02 90);
+  --sidebar-accent-foreground: oklch(0.3 0.02 200);
+
+  --sidebar-border: oklch(0.92 0.01 90);
+  --sidebar-ring: oklch(0.55 0.11 185);
+}
+
+.dark {
+  --background: oklch(0.14 0.01 200);
+  --foreground: oklch(0.95 0.01 90);
+
+  --card: oklch(0.18 0.01 200);
+  --card-foreground: oklch(0.95 0.01 90);
+
+  --popover: oklch(0.18 0.01 200);
+  --popover-foreground: oklch(0.95 0.01 90);
+
+  /* Teal pops more in dark */
+  --primary: oklch(0.65 0.13 185);
+  --primary-foreground: oklch(0.98 0 0);
+
+  --secondary: oklch(0.25 0.02 200);
+  --secondary-foreground: oklch(0.9 0.01 90);
+
+  --muted: oklch(0.25 0.01 200);
+  --muted-foreground: oklch(0.7 0.02 90);
+
+  /* Gold accent */
+  --accent: oklch(0.8 0.13 85);
+  --accent-foreground: oklch(0.2 0.02 30);
+
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.28 0.02 200);
+  --input: oklch(0.25 0.01 200);
+  --ring: oklch(0.65 0.13 185);
+
+  --chart-1: oklch(0.65 0.13 185);
+  --chart-2: oklch(0.8 0.13 85);
+  --chart-3: oklch(0.75 0.08 140);
+  --chart-4: oklch(0.7 0.1 200);
+  --chart-5: oklch(0.7 0.08 60);
+
+  --sidebar: oklch(0.18 0.01 200);
+  --sidebar-foreground: oklch(0.95 0.01 90);
+
+  --sidebar-primary: oklch(0.65 0.13 185);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+
+  --sidebar-accent: oklch(0.25 0.02 200);
+  --sidebar-accent-foreground: oklch(0.9 0.01 90);
+
+  --sidebar-border: oklch(0.28 0.02 200);
+  --sidebar-ring: oklch(0.5 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist), var(--font-tamil), 'Noto Sans Tamil', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-tamil: var(--font-tamil), 'Noto Sans Tamil', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Tamil Typography */
+.font-tamil {
+  font-family: var(--font-tamil), 'Noto Sans Tamil', sans-serif;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Horoscope Chart Styles */
+.horoscope-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  aspect-ratio: 1;
+}
+
+.horoscope-cell {
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  text-align: center;
+  min-height: 2.5rem;
+}
+
+/* South Indian Horoscope Layout */
+.si-chart {
+  position: relative;
+}
+
+.si-chart .house-1 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.si-chart .house-2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.si-chart .house-3 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.si-chart .house-4 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.si-chart .house-5 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.si-chart .house-6 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.si-chart .house-7 {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.si-chart .house-8 {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+.si-chart .house-9 {
+  grid-column: 4;
+  grid-row: 4;
+}
+
+.si-chart .house-10 {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+.si-chart .house-11 {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.si-chart .house-12 {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.si-chart .center {
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+}
+
+/* Image Crop Modal */
+.ReactCrop {
+  max-height: 70vh;
+}
