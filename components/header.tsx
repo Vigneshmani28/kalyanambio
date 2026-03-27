@@ -74,10 +74,10 @@ export function Header({ onOpenPreview }: HeaderProps) {
             </Button>
           )}
 
-          <Button variant="outline" size="sm" onClick={handleFillSample}>
+          {/* <Button variant="outline" size="sm" onClick={handleFillSample}>
             <Sparkles className="mr-1 h-3 w-3" />
             <span className="hidden sm:inline">Sample Data</span>
-          </Button>
+          </Button> */}
 
           {/* Reset */}
           <AlertDialog>
