@@ -124,10 +124,10 @@ const faqs = [
 ];
 
 const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'How it works', href: '#how' },
-  { label: 'Support', href: '#support' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Features', href: '/#features' },
+  { label: 'How it works', href: '/#how' },
+  { label: 'Support', href: '/#support' },
+  { label: 'FAQ', href: '/#faq' },
 ]
 
 // ─── components ──────────────────────────────────────────────────────────────
@@ -160,7 +160,7 @@ function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
           {NAV_LINKS.map(l => (
-            <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">{l.label}</a>
+            <Link key={l.href} href={l.href} className="hover:text-foreground transition-colors">{l.label}</Link>
           ))}
         </nav>
 
@@ -196,14 +196,14 @@ function Navbar() {
           >
             <nav className="flex flex-col px-4 py-3 gap-1">
               {NAV_LINKS.map(l => (
-                <a
+                <Link
                   key={l.href}
                   href={l.href}
                   onClick={close}
                   className="px-3 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
               <Link
                 href="/maker"
@@ -687,10 +687,10 @@ function Footer() {
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Navigation</p>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-              <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-              <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
-              <a href="#support" className="hover:text-foreground transition-colors">Support</a>
-              <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+              <Link href="/#features" className="hover:text-foreground transition-colors">Features</Link>
+              <Link href="/#how" className="hover:text-foreground transition-colors">How it works</Link>
+              <Link href="/#support" className="hover:text-foreground transition-colors">Support</Link>
+              <Link href="/#faq" className="hover:text-foreground transition-colors">FAQ</Link>
               <Link href="/maker" className="hover:text-foreground transition-colors">Create Bio Data</Link>
             </div>
           </div>

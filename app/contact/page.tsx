@@ -80,24 +80,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* FAQ shortcut */}
-        <div className="rounded-2xl border bg-muted/30 p-6 space-y-3">
-          <h2 className="font-semibold">Common support topics</h2>
-          {[
-            { q: 'Payment went through but PDF didn\'t download', a: 'Email us with your UPI/card transaction ID. We\'ll resolve within a few hours.' },
-            { q: 'I made a mistake in my bio data after downloading', a: 'Edit your data anytime in the app and pay ₹29 again to download the corrected PDF.' },
-            { q: 'How do I clear my saved data?', a: 'Use the Reset button in the top bar of the bio data maker, or clear your browser\'s localStorage.' },
-            { q: 'Can I get a refund?', a: 'Once the PDF download link is delivered, payments are non-refundable. Contact us for technical errors.' },
-          ].map(item => (
-            <details key={item.q} className="group">
-              <summary className="cursor-pointer text-sm font-medium py-2 list-none flex items-center justify-between">
-                {item.q}
-                <span className="text-muted-foreground group-open:rotate-180 transition-transform text-lg">⌄</span>
-              </summary>
-              <p className="text-sm text-muted-foreground pb-3 border-b last:border-0">{item.a}</p>
-            </details>
-          ))}
-        </div>
+
 
         <p className="mt-8 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} Kalyanam Bio Data.{' '}
