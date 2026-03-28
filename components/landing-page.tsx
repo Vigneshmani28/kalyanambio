@@ -37,7 +37,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 const features = [
   {
     icon: Layers,
-    title: '3 Premium Templates',
+    title: 'Premium Templates',
     desc: 'Classic, Elegant & Floral designs - all print-ready with A4 layout. Completely free!',
     color: 'bg-teal-50 text-teal-600 dark:bg-teal-950/60 dark:text-teal-400',
   },
@@ -50,7 +50,7 @@ const features = [
   {
     icon: Sparkles,
     title: 'Horoscope Charts',
-    desc: 'Built-in South Indian Rasi & Navamsam chart editor - no astrologer needed. Free for everyone.',
+    desc: 'Built-in South Indian Rasi & Navamsam chart editor. Free for everyone.',
     color: 'bg-violet-50 text-violet-600 dark:bg-violet-950/60 dark:text-violet-400',
   },
   {
@@ -363,24 +363,63 @@ function Hero() {
 
 function Features() {
   return (
-    <section id="features" className="py-24 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-4">
-        <FadeUp className="text-center mb-14">
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Everything You Need</p>
-          <h2 className="text-3xl sm:text-4xl font-bold">Built for Tamil families</h2>
-          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Every feature crafted to make creating your marriage bio data effortless and professional - completely free.
+    <section id="features" className="py-24 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <FadeUp className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <p className="text-xs font-semibold text-primary uppercase tracking-wider">
+              Premium Features
+            </p>
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+            Built for
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent ml-2">
+              தமிழ் families
+            </span>
+          </h2>
+
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Every feature crafted to make creating your marriage bio data effortless and professional -
+            <span className="text-foreground font-semibold"> completely free.</span>
           </p>
         </FadeUp>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((f, i) => (
             <FadeUp key={f.title} delay={i * 0.08}>
-              <div className="group h-full rounded-2xl border bg-card p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${f.color} mb-4`}>
-                  <f.icon className="h-5 w-5" />
+              <div className="group h-full relative">
+                {/* Gradient border effect on hover */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                <div className="relative h-full rounded-2xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ease-out">
+                  {/* Icon container with enhanced styling */}
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${f.color} mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <f.icon className="h-5 w-5 stroke-[1.5]" />
+                  </div>
+
+                  {/* Title with gradient text on hover */}
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {f.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                    {f.desc}
+                  </p>
+
+                  {/* Decorative line that expands on hover */}
+                  <div className="mt-4 h-0.5 w-8 bg-primary/20 rounded-full group-hover:w-12 transition-all duration-300" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1.5">{f.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
             </FadeUp>
           ))}
@@ -678,7 +717,7 @@ function Footer() {
         {/* Bottom bar */}
         <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Kalyanam Bio Data. Made with ❤️ for Tamil families. 100% Free Forever.
+            © {new Date().getFullYear()} Kalyanam Bio Data. Made with ❤️ for தமிழ் families. 100% Free Forever.
           </p>
           <div className="flex gap-4 text-xs text-muted-foreground">
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>

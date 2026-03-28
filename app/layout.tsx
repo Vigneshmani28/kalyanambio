@@ -115,7 +115,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ta" suppressHydrationWarning>
+    <html lang="ta" suppressHydrationWarning className="scroll-smooth">
       <head>
         {/* Structured Data for better SEO */}
         <script
