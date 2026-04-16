@@ -82,44 +82,40 @@ const steps = [
 
 const faqs = [
   {
-    q: 'Is this really free?',
-    a: 'Yes! This service is 100% free. You can create, edit, and download your Tamil marriage bio data PDF without any payment. No hidden charges, no credit card required.',
+    q: 'Is this Tamil marriage biodata maker really free?',
+    a: 'Yes! This Tamil marriage biodata maker is 100% free. You can create, edit, and download your biodata PDF without any payment. No hidden charges or signup required.',
   },
   {
-    q: 'Can I edit after downloading?',
-    a: 'Absolutely! You can edit your data anytime and download again for free as many times as you want. There are no limits or restrictions.',
+    q: 'How to create a Tamil marriage biodata online?',
+    a: 'You can easily create your Tamil marriage biodata online by filling in your details, selecting a template, and downloading the PDF instantly using our free tool.',
   },
   {
-    q: 'Do I need to create an account?',
-    a: 'No account needed. Everything works directly in your browser. Your data is saved locally on your device.',
+    q: 'Can I edit my marriage biodata after downloading?',
+    a: 'Yes, you can edit your marriage biodata anytime and download it again for free. There are no limits or restrictions.',
   },
   {
-    q: 'How do I support this project?',
-    a: 'While the service is free, if you find it helpful, you can support the developer by scanning the QR code in the Support section or using the donation links. Your support helps keep this tool free for everyone!',
+    q: 'Do I need an account to create marriage biodata?',
+    a: 'No account is required. You can create your marriage biodata directly in your browser without signing up.',
   },
   {
-    q: 'Is my personal data safe?',
-    a: 'Yes - 100%. All data is stored only in your browser\'s local storage. Nothing is sent to any server. Your privacy is completely protected.',
+    q: 'Is my personal data safe in this biodata maker?',
+    a: 'Yes, your data is completely safe. All information is stored locally in your browser and is never sent to any server.',
   },
   {
-    q: 'Can I add a photo?',
-    a: 'Yes! You can upload and crop your photo directly in the form. It appears on all templates. Your photo is stored locally and never uploaded.',
+    q: 'Can I add photo in my marriage biodata?',
+    a: 'Yes, you can upload and crop your photo. It will appear in your biodata templates and is stored locally on your device.',
   },
   {
-    q: 'Is the PDF print-ready?',
-    a: 'Yes - the PDF is formatted to A4 size at high quality, perfect for printing or sharing on WhatsApp.',
+    q: 'Does this support Tamil horoscope charts (Rasi & Navamsam)?',
+    a: 'Yes, this Tamil marriage biodata maker includes built-in South Indian style Rasi and Navamsam chart support.',
   },
   {
-    q: 'Do you support horoscope charts?',
-    a: 'Yes - the built-in South Indian style Rasi and Navamsam chart editor is included for free with all downloads.',
+    q: 'Is the marriage biodata PDF print-ready?',
+    a: 'Yes, the PDF is formatted in A4 size with high quality, suitable for printing or sharing via WhatsApp.',
   },
   {
-    q: 'Can I use this on mobile?',
-    a: 'Yes! The bio data maker is fully responsive and works great on mobile phones, tablets, and desktop computers.',
-  },
-  {
-    q: 'What if I find a bug or have a suggestion?',
-    a: 'We\'d love to hear from you! Contact us via email or phone, and we\'ll do our best to improve the tool.',
+    q: 'Can I use this marriage biodata maker on mobile?',
+    a: 'Yes, the tool is fully responsive and works smoothly on mobile, tablet, and desktop devices.',
   },
 ];
 
@@ -258,13 +254,13 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
         >
-          Tamil Biodata,{" "}
+          Tamil Marriage Biodata Maker,{" "}
           <span className="bg-gradient-to-r from-teal-500 to-emerald-400 bg-clip-text text-transparent">
-            Designed Like Premium
+            Create Premium Designs
           </span>
           <br />
           <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white/80">
-            Offered Completely Free
+            100% Free & Instant Download
           </span>
         </motion.h1>
 
@@ -275,8 +271,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl mx-auto text-lg text-white/80 leading-relaxed"
         >
-          Create elegant Tamil marriage biodata with horoscope charts, photos, and beautiful templates -
-          download instantly with zero cost, zero signup.
+          Create your Tamil marriage biodata online for free. Add horoscope, photos, and personal details using beautiful templates. Download instantly — no signup required.
         </motion.p>
 
         {/* CTAs */}
@@ -383,11 +378,11 @@ function Features() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-            Built for
-            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent ml-2">
-              தமிழ் families
-            </span>
-          </h2>
+  Tamil Marriage Biodata Maker{" "}
+  <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent ml-2">
+    Features
+  </span>
+</h2>
 
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Every feature crafted to make creating your marriage bio data effortless and professional -
@@ -596,7 +591,7 @@ function FAQ() {
       <div className="max-w-3xl mx-auto px-4">
         <FadeUp className="text-center mb-14">
           <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">FAQ</p>
-          <h2 className="text-3xl sm:text-4xl font-bold">Common questions</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold">Tamil Marriage Biodata Maker FAQs</h2>
         </FadeUp>
 
         <Accordion type="single" collapsible className="space-y-4">
@@ -740,6 +735,23 @@ export default function LandingPage() {
       <HowItWorks />
       <Support />
       <FAQ />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a,
+              },
+            })),
+          }),
+        }}
+      />
       <CTA />
       <Footer />
     </>
